@@ -21,15 +21,15 @@ class Preprocess:
 
         customer,orders = Preprocess.load_data(path)
         customer = customer.drop( columns = ['CustomerID','Month','DateInText','MonthName','Gender.1','Gender'])
-        customer = customer.rename( columns = {'CustomerID.1':'Customer','Gender.2':'Gender'}) 
+        customer = customer.rename( columns = {'CustomerID.1':'CustomerID','Gender.2':'Gender'}) 
         customer = customer.dropna()
         customer['Order Date']  = pd.to_datetime(customer['Order Date'])
 
-        orders = orders.rename( columns = {'Quantity ordered n':'Quantity'})
+        orders = orders.rename( columns = {'Quantity ordered n':'Qty'})
         orders = orders.dropna()
 
-        customer.to_csv('dataset/customer.csv')
-        orders.to_csv('dataset/orders.csv')
+        customer.to_csv('dataset/customer.csv', index=None)
+        orders.to_csv('dataset/orders.csv', index=None)
 
         return customer,orders
 
