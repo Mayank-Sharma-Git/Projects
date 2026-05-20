@@ -1,5 +1,5 @@
 
-from preprocessing.utlities import Preprocess
+from preprocessing.Utilities import Preprocess
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -20,19 +20,19 @@ filtered_df = df.copy()
 col1,col2,col3,col4 = st.columns(4)
 with col1:
     cat = st.selectbox("Select Product",["All"]+list(df['Product Category'].unique()))
-    if cat is not 'All':
+    if cat != 'All':
         filtered_df = filtered_df[filtered_df['Product Category']==cat]
 with col2:
     state = st.selectbox("Select State",["All"]+list(df['State or Province'].unique()))
-    if state is not 'All':
+    if state != 'All':
         filtered_df = filtered_df[filtered_df['State or Province']==state]
 with col3:
     city = st.selectbox("Select City",["All"]+list(filtered_df['City'].unique()))
-    if city is not 'All':
+    if city != 'All':
         filtered_df = filtered_df[filtered_df['City']==city]
 with col4:
     gender = st.radio("Select Gender",["All"]+list(df['Gender'].unique()) , horizontal=True)
-    if gender is not 'All':
+    if gender != 'All':
         filtered_df = filtered_df[filtered_df['Gender']==gender]
 
 
@@ -46,7 +46,7 @@ with col1:
 with col3:
     st.metric("Total Profit",round(filtered_df['Profit'].sum(),2))
 with col2:
-    st.metric("Sold Quantity",round(filtered_df['Qty'].sum(),0))
+    st.metric("Sold Quantity",round(filtered_df['Qty'].sum(),1))
 with col4:
     fig, ax = plt.subplots(figsize=(8,2))
     sns.lineplot(x='Product Sub-Category',y='Profit',data=filtered_df , ax=ax)

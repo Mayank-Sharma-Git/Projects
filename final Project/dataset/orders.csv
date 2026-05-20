@@ -1,4 +1,4 @@
-Order ID,CustomerID,Amount,Profit,Quantity ordered new,Product Category,Product Sub-Category,Payment Mode
+Order ID,CustomerID,Amount,Profit,Qty,Product Category,Product Sub-Category,Payment Mode
 88522,4666,11.36,4.56,4,Office Supplies,Pens & Art Supplies,Credit Card
 90193,4663,6011.76,4390.3665,12,Furniture,Chairs & Chairmats,Credit Card
 90192,2583,208.56,-53.8096,22,Furniture,Office Furnishings,Credit Card
